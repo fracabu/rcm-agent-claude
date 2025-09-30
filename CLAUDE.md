@@ -53,10 +53,16 @@ This repository defines three specialized agents located in `.claude/agents/`:
 
 ## Agent Interaction Pattern
 
-These agents appear designed to work in sequence:
-1. **content-creator-agent** generates initial content
-2. **prose-editor** refines the prose for quality
-3. **optimizing-editor-agent** performs final optimization and compliance checks
+These agents are designed to work in sequence:
+1. **content-creator-agent** generates initial content with storytelling and USPs
+2. **prose-editor** refines the prose for quality, clarity, and voice preservation
+3. **optimizing-editor-agent** performs final optimization, compliance checks, and platform-specific formatting
+
+**Example workflow visible in repository**:
+- `booking-listing-description.txt`: Raw output from content-creator-agent (620 words)
+- `BOOKING-FINAL.txt`: Final output after prose-editor and optimizing-editor passes (448 words, publication-ready)
+
+This demonstrates the multi-agent pipeline reducing content from 620→448 words while improving quality.
 
 ## File Structure
 
@@ -69,3 +75,12 @@ These agents appear designed to work in sequence:
 ```
 
 Each agent file contains YAML frontmatter with metadata (name, description, model, color) followed by detailed instructions for the agent's behavior.
+
+## Working with Content
+
+When editing content in this repository:
+- Sample `.txt` files demonstrate agent output at different pipeline stages
+- These are reference examples, not production code
+- The agents themselves (`.claude/agents/*.md`) define the behavior used by Claude Code's Task tool
+- DO NOT modify agent definitions unless explicitly requested
+- Focus on improving specific content pieces when asked, using the agents as guides for quality standards
